@@ -1,11 +1,17 @@
 #!/bin/bash
 
-mkdir -p /tmp/banda
-touch /tmp/banda/file.txt
+PATH1="/tmp/banda"
+DATE=`date +%d_%B_%Y`
+echo $DATE
 
-if [[ -f /tmp/banda/file.txt  ]];
+mkdir -p /tmp/banda
+touch $PATH1/file.txt
+
+if [[ -f $PATH1/file.txt  ]];
 then
 echo "file exists";
+echo "#######Renaming File######"
+`mv ${PATH1}/file.txt ${PATH1}/User_list_${DATE}.txt`
 else
-touch /tmp/banda/file.txt;
+echo "No file present"
 fi
